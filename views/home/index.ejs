@@ -1,0 +1,42 @@
+<!-- views/home/about.ejs -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include('../partials/head') %>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+    #myPanoViewer {
+      position: relative; /* 반드시 relative 혹은absolute 를 지정합니다.*/
+      width: 600px;
+      height: 400px;
+    }
+    </style>
+    <script src="//naver.github.io/egjs-view360/release/latest/dist/PanoViewer/view360.panoviewer.pkgd.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container mb-3">
+
+        <h2 class="mb-3">Welcome</h2>
+
+        <P>이 사이트는 Test 중 입니다.</p>
+
+    </div>
+    <div id="myPanoViewer"></div>
+    <script>
+        // create PanoViewer with option
+        var PanoViewer = eg.view360.PanoViewer;
+        var container = document.getElementById("myPanoViewer");// 이미지가 표시될 영역(HTMLElement)
+            
+        var panoViewer = new PanoViewer(container, {
+                    image: "/assets/img/smartphone-panorama-picture.jpg" 
+                }
+        );
+    </script>
+</body>
+
+</html>
