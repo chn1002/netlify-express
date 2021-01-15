@@ -17,8 +17,6 @@ const fs = require('fs');
 //  res.write('<h1>Hello from Express.js!</h1>');
 //  res.end();
 //});
-//router.get('/another', (req, res) => res.json({ route: req.originalUrl }));
-//router.post('/', (req, res) => res.json({ postBody: req.body }));
 
 // Other settings
 app.set('view engine', 'ejs');
@@ -26,6 +24,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride('_method'))
 app.use(flash());
+
+app.use('/.netlify/functions/server', router);  // path must route to lambda
 
 // Routes
 app.use('/', require('../routes/home'));
