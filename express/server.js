@@ -10,14 +10,11 @@ const session = require('express-session');
 const util = require('../src/utils');
 const fs = require('fs');
 
-
-//router.get('/', (req, res) => {
-//  res.writeHead(200, { 'Content-Type': 'text/html' });
-//  res.write('<h1>Hello from Express.js!</h1>');
-//  res.end();
-//});
-
 const router = express.Router();
+router.get('/', (req, res) => {
+  res.render('home/index');
+});
+
 
 // Other settings
 app.set('view engine', 'ejs');
@@ -29,7 +26,7 @@ app.use(flash());
 app.use('/.netlify/functions/server', router);  // path must route to lambda
 
 // Routes
-app.use('/', require('../routes/home'));
+app.use('/', (req, res) => res.render('home/index'));
 
 
 module.exports = app;
