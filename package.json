@@ -32,5 +32,8 @@
     "netlify-lambda": "^1.6.3",
     "nodemon": "^1.19.4",
     "serverless-http": "^2.6.0"
+  },
+  "dependencies": {
+    "build": "^0.1.4"
   }
 }
